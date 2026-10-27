@@ -1,0 +1,113 @@
+.card-card {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.imgPart-card {
+    position: relative;
+    display: flex;
+    height: 55%;
+
+
+}
+
+
+
+.imgPart-card p {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: #F2F1ED;
+    background-color: rgb(16, 18, 20, 60%);
+}
+
+.imgPart-card button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: rgb(16, 18, 20, 60%);
+    border: none;
+    border-radius: 5px;
+    min-height: 35px;
+    min-width: 35px;
+
+
+
+}
+
+.imgPart-card button img {
+    height: 30px;
+    width: 30px;
+
+
+}
+
+.imgPart-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+
+
+}
+
+.infoPart-card {
+    width: 100%;
+    height: 45%;
+    background-color: #1B1D20;
+    border-radius: 0 0 10px 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 110%;
+}
+
+.infoPart-card h2 {
+    color: #F2F1ED;
+    font-weight: 500;
+
+}
+
+.infoPart-card p {
+    color: #9B9DA3;
+    font-weight: 400;
+}
+
+.infoPart-card label {
+    color: #9B9DA3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.infoPart-card input {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #565A60;
+    border-radius: 50px;
+    display: grid;
+    place-content: center;
+
+}
+
+.infoPart-card input:checked {
+    content: '';
+    background-color: #C4F36B;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50px;
+    background-image: url(../../assets/icons/check.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}

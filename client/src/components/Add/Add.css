@@ -1,0 +1,196 @@
+.add-add {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(86, 90, 96, 0.4);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-form {
+    height: fit-content;
+    width: 35%;
+    background-color: #1B1D20;
+    border: 2px solid #2B2D31;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+
+    
+
+}
+
+.firstPart-form {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid #2B2D31;
+}
+
+.firstPart-form>div:nth-of-type(1) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.firstPart-form>div:nth-of-type(1) img {
+    height: 50px;
+    width: 50px;
+}
+
+.firstPart-form>div:nth-of-type(1) button {
+    background: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+
+.firstPart-form>div:nth-of-type(1) button>img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.firstPart-form>h2 {
+    color: #F2F1ED;
+    font-weight: 500;
+}
+
+.firstPart-form>p:nth-of-type(1) {
+    color: #9B9DA3;
+}
+
+.mainPart-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    color: #F2F1ED;
+    border-bottom: 1px solid #2B2D31;
+}
+
+.mainPart-form>label {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mainPart-form>label input,
+textarea,
+select {
+    background-color: #17191C;
+    border: 1px solid #2B2D31;
+    border-radius: 10px;
+    width: 100%;
+    resize: none;
+    height: 150px;
+    padding: 15px;
+    font-size: 0.8rem;
+    color: #F2F1ED;
+}
+
+.mainPart-form>label input::placeholder,
+textarea::placeholder {
+    color: #73767D;
+}
+
+.mainPart-form>label input,
+select {
+    height: 50px;
+}
+
+.mainPart-form>label span {
+    color: #73767D;
+}
+
+.mainPart-form>label select {
+    color: #73767D;
+
+}
+
+.mainPart-form>div {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    gap: 10px;
+    width: 100%;
+}
+
+.mainPart-form>div span{
+    color: #73767D;
+}
+
+.mainPart-form>div label {
+    background-color: #17191C;
+    border: 1px dashed #2B2D31;
+    border-radius: 10px;
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #F2F1ED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.mainPart-form>div label img{
+    height: 25px;
+    width: 25px;
+}
+
+.mainPart-form>div label input{
+    display: none;
+}
+
+.lastPart-form{
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lastPart-form>div:nth-of-type(1){
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #73767D;
+    font-size: 0.8rem;
+}
+
+.lastPart-form>div:nth-of-type(1) img{
+    height: 15px;
+}
+
+.lastPart-form>div:nth-of-type(2){
+    display: flex;
+    gap: 10px;
+}
+
+.lastPart-form>div:nth-of-type(2) button{
+    border: none;
+    background: none;
+    border: 1px solid #2B2D31;
+    color: #F2F1ED;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+
+.lastPart-form>div:nth-of-type(2) button:nth-of-type(2){
+    background: #C4F36B;
+    color: #17200E;
+}
