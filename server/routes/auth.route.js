@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
         req.session.userId = user._id.toString()
 
         const keepLogin = req.body.keepLogin === true
-        req.session.cookie.maxAge = keepLogin ? 30 * 24 * 60 * 1000 //30 days
+        req.session.cookie.maxAge = keepLogin ? 30 * 24 * 60 * 60 * 1000 //30 days
             : null
 
         res.json({
@@ -114,7 +114,7 @@ router.get('/me', async (req, res) => {
         })
 
     } catch (error) {
-        res.status(500).json({error:'Could not check session'})
+        res.status(500).json({ error: 'Could not check session' })
     }
 })
 

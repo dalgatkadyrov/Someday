@@ -16,7 +16,7 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:3500/api/auth/logout', {
+      const response = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
       })
@@ -34,7 +34,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3500/api/auth/me', {
+    fetch('/api/auth/me', {
       credentials: 'include'
     })
       .then((response) => {

@@ -7,7 +7,7 @@ const Card = ({ card, cards, setCards, setIsCompleted, isCompleted }) => {
 
   const [isDelete, setIsDelete] = useState(false)
 
-  const url = 'http://localhost:3500/api/cards/'
+  const url = '/api/cards/'
 
 
 

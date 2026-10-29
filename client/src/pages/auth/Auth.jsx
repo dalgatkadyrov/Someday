@@ -30,7 +30,7 @@ const Auth = ({ setAuthed }) => {
                     return
                 }
 
-                const response = await fetch('http://localhost:3500/api/auth/register', {
+                const response = await fetch('/api/auth/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     credentials: 'include',
@@ -51,7 +51,7 @@ const Auth = ({ setAuthed }) => {
                 setMessage('Account create. You can now log in.')
                 return
             }
-            const response = await fetch('http://localhost:3500/api/auth/login', {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

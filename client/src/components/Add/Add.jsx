@@ -7,7 +7,7 @@ import padlock from '../../assets/icons/padlock.png'
 
 const Add = ({ setIsAdd, setCards, cards }) => {
 
-    const url = 'http://localhost:3500/api/cards/'
+    const url = '/api/cards/'
 
 
     const handleSubmit = async (e) => {

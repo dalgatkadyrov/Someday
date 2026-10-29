@@ -16,7 +16,7 @@ const MainPage = ({ onLogout, setIsAdd, cards, setCards, currentPage, setComplet
   const completedCount = cards.filter((card) => card.completed).length
   const progress = cards.length ? Math.round((completedCount / cards.length) * 100) : 0
 
-  const url = 'http://localhost:3500/api/cards/'
+  const url = '/api/cards/'
 
   function handleSearch(e) {
 
