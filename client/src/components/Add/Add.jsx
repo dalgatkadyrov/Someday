@@ -26,20 +26,35 @@ const Add = ({ setIsAdd, setCards, cards }) => {
             title: e.target.title.value,
             description: e.target.description.value,
             category: e.target.category.value,
-            // image:
+            image: e.target.image.files[0],
             sortByNum: cards.length + 1,
             completed: false
 
         }
 
+        const formData = new FormData()
+        formData.append('title', card.title)
+        formData.append('description', card.description)
+        formData.append('category', card.category)
+        card.image && formData.append('image', card.image)
+        formData.append('sortByNum', card.sortByNum)
+        formData.append('completed', card.completed)
+
+
+
+
+
         try {
+            console.log(card)
+
             const response = await fetch(url, {
                 method: 'POST',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify(card)
+                body: formData,
+                credentials: 'include'
             })
 
             const result = await response.json()
+
 
             if (!response.ok) {
                 throw new Error(result.error)
@@ -82,10 +97,10 @@ const Add = ({ setIsAdd, setCards, cards }) => {
                     <div>
                         Cover image <span>Optional</span>
                         <label htmlFor="addFile-add">
-                            <input name='image' type="file" id='addFile-add'></input>
+                            <input name='image' type="file" id='addFile-add' accept='image/*'></input>
                             <img src={picture} alt="" />
                             <span style={{ color: '#C4F36B' }}>Click to upload <span>or drag and drop</span></span>
-                            <span>JPG or PNG Up to 10 MB</span>
+                            <span>JPG or PNG Up to 5 MB</span>
                         </label>
                     </div>
                 </div>

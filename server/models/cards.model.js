@@ -14,18 +14,25 @@ const cardSchema = new Schema({
         required: true,
         type: String
     },
-    // image: {
-
-    // },
+    image: {
+        type: String
+    },
+    imagePublicId: {
+        type: String
+    },
     sortByNum: {
         required: true,
         type: Number
-
     },
     completed: {
         type: Boolean
-    }
+    },
 
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 
 }, { timestamps: true })
 

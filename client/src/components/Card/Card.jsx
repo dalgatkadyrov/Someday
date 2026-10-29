@@ -10,19 +10,18 @@ const Card = ({ card, cards, setCards, setIsCompleted, isCompleted }) => {
   const url = 'http://localhost:3500/api/cards/'
 
 
+
   const handleUpdate = async () => {
 
-    if (card.completed === false)
-      card.completed = true
-    else if (card.completed === true)
-      card.completed = false
+    const newCompleted = !card.completed
 
     try {
       const response = await fetch(url + card._id, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
-          completed: card.completed
+          completed: newCompleted
         })
       })
 
@@ -45,7 +44,8 @@ const Card = ({ card, cards, setCards, setIsCompleted, isCompleted }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(url + card._id, {
-        method: 'DELETE'
+        method: 'DELETE',
+        credentials: 'include'
       })
 
       const result = await response.json()
@@ -62,16 +62,16 @@ const Card = ({ card, cards, setCards, setIsCompleted, isCompleted }) => {
   }
 
   return (
-    <div className='card-card' >
+    <div className='card-card' onClick={() => setIsDelete(false)}>
       <div className='imgPart-card' >
         <p>{card.category}</p>
-        {!isDelete ? <button onClick={() => setIsDelete(true)}><img src={tripledot} alt="" /></button> : <button style={{ color: 'white', padding: '5px 10px' }} onClick={handleDelete}>Delete</button>}
-        {card.image && <img src={URL.createObjectURL(card.image)} alt="" />}
+        {!isDelete ? <button onClick={(e) => { e.stopPropagation(); setIsDelete(true) }}><img src={tripledot} alt="" /></button> : <button style={{ color: 'white', padding: '5px 10px' }} onClick={handleDelete}>Delete</button>}
+        {card.image && <img src={card.image} alt="" />}
       </div>
       <div className='infoPart-card' onClick={() => setIsDelete(false)}>
         <h2>{card.title}</h2>
         <p>{card.description}</p>
-        <label><input defaultChecked={card.completed} onChange={handleUpdate} type="checkbox" />{card.completed ? 'Completed' : 'Want to Try'}</label>
+        <label><input checked={card.completed} onChange={handleUpdate} type="checkbox" />{card.completed ? 'Completed' : 'Want to Try'}</label>
 
       </div>
     </div>

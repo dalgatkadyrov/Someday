@@ -186,7 +186,7 @@
 
 }
 
-.journey>div:nth-of-type(1) img{
+.journey>div:nth-of-type(1) img {
     height: 30px;
     width: 30px;
     margin: 10px;
@@ -197,31 +197,76 @@
     margin-bottom: 5px;
 }
 
-.journey>div:nth-of-type(1) p{
+.journey>div:nth-of-type(1) p {
     color: #9B9DA3;
 }
 
-.journey>div:nth-of-type(2){
+.journey>div:nth-of-type(2) {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px 20px;
+    width: 20%;
 }
 
-.journey>div:nth-of-type(2)>p:nth-of-type(1){
+.journey>div:nth-of-type(2)>p:nth-of-type(1) {
     color: #73767D;
     font-size: 0.8rem;
 }
 
-.journey>div:nth-of-type(2)>p:nth-of-type(2){
+.journey>div:nth-of-type(2)>p:nth-of-type(2) {
     color: #C4F36B;
     font-size: 0.8rem;
 }
 
-.journey>div:nth-of-type(2)>hr{
-    width: 100%;
-    height: 5px;
-    border: none;
-    border-radius: 10px;
+.progressBar {
+    height: 6px;
     background-color: #2B2D31;
+    border-radius: 100px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progressBarFill {
+    height: 100%;
+    background: #C4F36B;
+    border-radius: inherit;
+    transition: width 300ms ease;
+}
+
+.userMenu-main {
+    position: relative;
+}
+
+.userProf {
+    cursor: pointer;
+    border: none;
+}
+
+.userPopup-main {
+    position: absolute;
+    top: calc(100%+8px);
+    right: 0;
+    z-index: 10;
+    min-width: 150px;
+    padding: 6px;
+    background-color: #1B1D20;
+    border: 1px solid #2B2D31;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgb(0 0 0/30%);
+}
+
+.userPopup-main button {
+    width: 100%;
+    padding: 10px;
+    color: #f2f1ed;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.userPopup-main button:hover {
+    background: #2b2d31;
 }

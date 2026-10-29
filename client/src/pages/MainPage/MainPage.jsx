@@ -7,12 +7,14 @@ import arrowdown from '../../assets/icons/arrowdown.png'
 import route from '../../assets/icons/route.png'
 
 
-const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, completed }) => {
+const MainPage = ({ onLogout, setIsAdd, cards, setCards, currentPage, setCompleted, completed, currentCategory }) => {
 
   const [searchCards, setSearchCards] = useState()
   const [expanded, setExpanded] = useState(false)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
 
-  const [isCompleted, setIsCompleted] = useState(false)
+  const completedCount = cards.filter((card) => card.completed).length
+  const progress = cards.length ? Math.round((completedCount / cards.length) * 100) : 0
 
   const url = 'http://localhost:3500/api/cards/'
 
@@ -25,7 +27,7 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
   }
 
   function handleSort(e) {
-    const value = e.target.value
+    const value = e.target.value3
 
     if (value === 'name') {
       setCards([...cards].sort((a, b) => a.title > b.title ? 1 : -1,))
@@ -34,7 +36,7 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
       setCards([...cards].sort((a, b) => a.category > b.category ? 1 : -1,))
     }
     if (value === 'recentlyAdded') {
-      setCards([...cards].sort((a, b) => a.sortByNum - b.sortByNum,))
+      setCards([...cards].sort((a, b) => b.sortByNum - a.sortByNum,))
     }
 
   }
@@ -42,7 +44,9 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(url)
+        const response = await fetch(url, {
+          credentials: 'include'
+        })
 
         if (!response.ok) { throw new Error('failed to fetch') }
 
@@ -61,11 +65,19 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
 
   }, [setCards])
 
+
   return (
     <div className='mainPage' >
       <div className='userBar-main'>
         <div><img src={bookmark} alt="" /><p>YOUR PERSONAL COLLECTION</p></div>
-        <div className='userProf'></div>
+        <div className='userMenu-main'>
+          <button className='userProf' type='button' aria-label='Open user menu' aria-expanded={userMenuOpen} onClick={() => setUserMenuOpen((open) => !open)}></button>
+          {userMenuOpen && 
+          <div className='userPopup-main'>
+            <button type='button' onClick={()=>{setUserMenuOpen(false), onLogout()}}> Log out</button>
+          </div>
+          }
+        </div>
       </div>
 
       <div className="search-main">
@@ -79,7 +91,7 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
 
       <div className='categories-main'>
         <div>
-          <h4>{currentPage === 'allExperiences' ? 'All Experiences' : currentPage === 'completed' ? 'Completed' : 'Not Started'}</h4>
+          <h4>{currentPage === 'allExperiences' ? 'All Experiences' : currentPage === 'completed' ? 'Completed' : currentPage === 'notStarted' ? 'Not Started' : currentCategory}</h4>
           <p>{cards.length}</p>
         </div>
 
@@ -94,27 +106,8 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
 
       </div>
 
-      {/* <section className='cardHolder-main'>
-        {
-          currentPage === 'allExperiences' ?
-            searchCards ? searchCards.map((card, index) =>
-              <Card key={index} card={card} cards={cards} setCards={setCards} />
-            ) : cards.map((card, index) =>
-              <Card key={index} card={card} cards={cards} setCards={setCards} />
-            ) :
-            currentPage === 'completed' ?
-              searchCards ? searchCards.map((card, index) =>
-                card.completed === true && <Card key={index} card={card} cards={cards} setCards={setCards} />
-              ) : cards.map((card, index) =>
-                card.completed === true && <Card key={index} card={card} cards={cards} setCards={setCards} />
-              ) :
-              searchCards ? searchCards.map((card, index) =>
-                card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />
-              ) : cards.map((card, index) =>
-                card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />
-              )
-        }
-      </section> */}
+
+
       <section className='cardHolder-main'>
         {
           currentPage === 'allExperiences' ?
@@ -132,18 +125,49 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
                 card.completed === true && <Card key={index} card={card} cards={cards} setCards={setCards} />) : cards.slice(0, 6).map((card, index) =>
                   card.completed === true && <Card key={index} card={card} cards={cards} setCards={setCards} />
                 ) :
-              searchCards ? searchCards.map((card, index) =>
-                card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />
-              ) : expanded ? cards.map((card, index) =>
-                card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />) : cards.slice(0, 6).map((card, index) =>
+              currentPage === 'notStarted' ?
+                searchCards ? searchCards.map((card, index) =>
                   card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />
-                )
+                ) : expanded ? cards.map((card, index) =>
+                  card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />) : cards.slice(0, 6).map((card, index) =>
+                    card.completed === false && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                  ) :
+                currentCategory === 'Adventure' ?
+                  searchCards ? searchCards.map((card, index) =>
+                    card.category === 'Adventure' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                  ) : cards.map((card, index) =>
+                    card.category === 'Adventure' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                  ) :
+                  currentCategory === 'Travel' ?
+                    searchCards ? searchCards.map((card, index) =>
+                      card.category === 'Travel' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                    ) : cards.map((card, index) =>
+                      card.category === 'Travel' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                    ) :
+                    currentCategory === 'Skills' ?
+                      searchCards ? searchCards.map((card, index) =>
+                        card.category === 'Skills' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                      ) : cards.map((card, index) =>
+                        card.category === 'Skills' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                      ) :
+                      currentCategory === 'Personal Growth' ?
+                        searchCards ? searchCards.map((card, index) =>
+                          card.category === 'Personal Growth' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                        ) : cards.map((card, index) =>
+                          card.category === 'Personal Growth' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                        ) :
+                        searchCards ? searchCards.map((card, index) =>
+                          card.category === 'Other' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                        ) : cards.map((card, index) =>
+                          card.category === 'Other' && <Card key={index} card={card} cards={cards} setCards={setCards} />
+                        )
+
         }
       </section>
 
       <div className='experiencesAmount-main'>
-        <p>6 of {cards.length} experiences</p>
-        <button style={{ display: searchCards ? 'none' : 'block' }} onClick={() => setExpanded(expanded ? false : true)} >{expanded ? 'Show Less' : 'Show more'} <img style={{ transform: expanded && 'rotateZ(180deg)' }} src={arrowdown} alt="" /></button>
+        <p>{expanded ? cards.length : cards.slice(0, 6).length} of {cards.length} all experiences</p>
+        <button style={{ display: searchCards || currentCategory ? 'none' : 'block' }} onClick={() => setExpanded(expanded ? false : true)} >{expanded ? 'Show Less' : 'Show more'} <img style={{ transform: expanded && 'rotateZ(180deg)' }} src={arrowdown} alt="" /></button>
       </div>
 
       <div className='journey'>
@@ -158,8 +182,10 @@ const MainPage = ({ setIsAdd, cards, setCards, currentPage, setCompleted, comple
 
         <div>
           <p>A little closer to a life well lived.</p>
-          <p>12.5%</p>
-          <hr />
+          <p>{progress}%</p>
+          <div className="progressBar" role='progressbar' aria-valuenow={progress} aria-valuemin='0' aria-valuemax='100'>
+            <div className="progressBarFill" style={{ width: `${progress}%` }}></div>
+          </div>
         </div>
       </div>
 

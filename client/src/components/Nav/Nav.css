@@ -1,4 +1,5 @@
-.nav-nav{
+
+.nav-nav {
     height: 100vh;
     width: 300px;
     background-color: #151618;
@@ -11,13 +12,13 @@
 
 }
 
-.topCont{
+.topCont {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-.nav-titleHolder{
+.nav-titleHolder {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -27,23 +28,23 @@
 
 }
 
-.nav-titleHolder img{
+.nav-titleHolder img {
     height: 40px;
     width: 40px;
 }
 
-.nav-titleHolder h1{
+.nav-titleHolder h1 {
     color: #F2F1ED;
     font-weight: 500;
 }
 
-.nav-titleHolder p{
+.nav-titleHolder p {
     color: #73767D;
     width: 100%;
     /* text-align: center; */
 }
 
-.nav-pageButtons{
+.nav-pageButtons {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -52,7 +53,8 @@
     width: 100%;
 }
 
-.nav-pageButtons button{
+
+.navPageButton {
     display: flex;
     align-items: center;
     width: 100%;
@@ -65,18 +67,31 @@
     border-radius: 10px;
     position: relative;
 }
-
-.nav-pageButtons button:active{
+.selected {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+    gap: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    position: relative;
     color: #C4F36B;
     background-color: #283321;
 }
 
-.nav-pageButtons button img{
+/* .nav-pageButtons button:active{
+    color: #C4F36B;
+    background-color: #283321;
+} */
+
+.nav-pageButtons button img {
     height: 20px;
     width: 20px;
 }
 
-.nav-pageButtons button p{
+.nav-pageButtons button p {
     position: absolute;
     right: 20px;
 }
@@ -84,7 +99,7 @@
 
 
 
-.nav-categories{
+.nav-categories {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -93,14 +108,14 @@
     width: 100%;
 }
 
-.nav-categories>p{
+.nav-categories>p {
     color: #9B9DA3;
     text-align: left;
     width: 100%;
     font-size: 0.8rem;
 }
 
-.nav-categories button{
+/* .nav-categories button {
     display: flex;
     align-items: center;
     width: 100%;
@@ -112,24 +127,19 @@
     border: none;
     border-radius: 10px;
     position: relative;
-}
+} */
 
-.nav-categories button:active{
-    color: #C4F36B;
-    background-color: #283321;
-}
-
-.nav-categories button img{
+.nav-categories button img {
     height: 20px;
     width: 20px;
 }
 
-.nav-categories button p{
+.nav-categories button p {
     position: absolute;
     right: 20px;
 }
 
-.nav-statusBar{
+.nav-statusBar {
     width: 100%;
     display: flex;
     align-items: center;
@@ -139,12 +149,12 @@
     gap: 10px;
 }
 
-.nav-statusBar img{
+.nav-statusBar img {
     height: 20px;
     width: 20px;
 }
 
-.nav-statusBar hr{
+.nav-statusBar hr {
     width: 100%;
     height: 5px;
     border: none;
@@ -152,8 +162,8 @@
     background-color: #2B2D31;
 }
 
-.bottomCont>hr{
-    margin: 50px 0;
+.bottomCont>hr {
+    margin: 30px 0;
     border: none;
     height: 2px;
     border-radius: 5px;
@@ -161,13 +171,13 @@
 
 }
 
-.nav-securityWarn{
+.nav-securityWarn {
     display: flex;
     gap: 10px;
     color: #73767D;
 }
 
-.nav-securityWarn img{
+.nav-securityWarn img {
     height: 20px;
     width: 20px;
 }
