@@ -3,3 +3,23 @@
 *{
     box-sizing: border-box;
 }
+
+html,
+body,
+#root {
+    min-height: 100%;
+    background-color: #111214;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    overscroll-behavior-y: none;
+}
+
+@supports (height: 100dvh) {
+    body,
+    #root {
+        min-height: 100dvh;
+    }
+}
