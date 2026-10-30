@@ -112,7 +112,7 @@ const Auth = ({ setAuthed }) => {
                             <p>ONE SOMEDAY AT A TIME</p>
                             <h1>Welcome back.</h1>
                             <p>Your next experience is waiting. Log in to your personal collection.</p>
-                            {message && <p style={{ color: 'darkred' }}>{message}</p>}
+                            {message && <p style={{ color: 'darkgreen' }}>{message}</p>}
                             {error && <p style={{ color: 'darkred' }}>{error}</p>}
                         </div>
                         <div>
