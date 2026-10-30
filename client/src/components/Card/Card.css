@@ -186,9 +186,41 @@
         height: 360px;
     }
 
+    .imgPart-card {
+        flex: 0 0 55%;
+        min-height: 0;
+    }
+
     .infoPart-card {
-        padding: 18px;
-        font-size: 95%;
+        flex: 1 1 0;
+        min-height: 0;
+        padding: 14px 16px;
+        gap: 6px;
+        overflow: hidden;
+        font-size: 90%;
+    }
+
+    .infoPart-card h2 {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 1rem;
+        line-height: 1.25;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .infoPart-card p {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 0.82rem;
+        line-height: 1.4;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+    .infoPart-card label {
+        flex-shrink: 0;
+        font-size: 0.8rem;
     }
 }
 
