@@ -181,7 +181,7 @@
     }
 }
 
-@media (min-width: 701px) and (max-width: 900px) {
+@media (min-width: 701px) and (max-width: 1280px) {
     .card-card {
         height: 360px;
     }

@@ -294,7 +294,7 @@
     border: none;
 }
 
-@media (min-width: 701px) and (max-width: 1024px) {
+@media (min-width: 701px) and (max-width: 1280px) {
     .auth {
         height: auto;
         min-height: 100dvh;
