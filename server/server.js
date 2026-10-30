@@ -41,6 +41,11 @@ app.use(session({
 app.use('/api/auth', authRoutes)
 app.use('/api/cards', cardRoutes)
 
+app.get('/health', (req, res) => {
+    res.status(200).send('ok')
+})
+
+
 app.use(express.static(clientDist))
 
 app.get(/.*/, (req, res, next) => {
@@ -51,6 +56,20 @@ app.get(/.*/, (req, res, next) => {
 connectDB().then(() => {
     app.listen(port, () => {
         console.log(`server runs on ${port}`)
+
+        const keepAliveUrl = 'https://someday-usti.onrender.com/health'
+
+        if (keepAliveUrl) {
+            const timer = setInterval(async () => {
+                try {
+                    const response = await fetch(keepAliveUrl)
+                    console.log(`keep-alive ping: ${response.status}`)
+                } catch (error) {
+                    console.error('keep-alive ping failed:', error.message)
+                }
+            }, 14 * 60 * 1000)
+            timer.unref()
+        }
     })
 }).catch((error) => {
     console.error('db error', error)
