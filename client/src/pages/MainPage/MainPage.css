@@ -270,3 +270,208 @@
 .userPopup-main button:hover {
     background: #2b2d31;
 }
+
+.mobileNavToggle-main {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .mainPage {
+        height: auto;
+        min-height: 100dvh;
+        padding: 18px 16px 28px;
+        overflow: visible;
+    }
+
+    .userBar-main {
+        min-height: 34px;
+    }
+
+    .brand-main {
+        gap: 10px !important;
+    }
+
+    .brand-main > img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .brand-main > p {
+        font-size: 0 !important;
+        letter-spacing: 0;
+    }
+
+    .brand-main > p::after {
+        content: 'Someday';
+        font-size: 0.9rem;
+        color: #f2f1ed;
+    }
+
+    .mobileNavToggle-main {
+        display: flex;
+        width: 28px;
+        height: 28px;
+        padding: 6px 4px;
+        flex-direction: column;
+        justify-content: space-around;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .mobileNavToggle-main span {
+        display: block;
+        width: 19px;
+        height: 2px;
+        border-radius: 2px;
+        background: #f2f1ed;
+    }
+
+    .userProf {
+        width: 30px;
+        height: 30px;
+    }
+
+    .userPopup-main {
+        top: calc(100% + 8px);
+    }
+
+    .search-main {
+        margin: 28px 0 24px;
+    }
+
+    .search-main > h1 {
+        font-size: clamp(1.8rem, 8vw, 2.35rem);
+        line-height: 1.1;
+    }
+
+    .search-main > p {
+        margin-top: 8px;
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+
+    .searchHolder-main {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .searchBar-main {
+        height: 44px;
+        margin: 18px 0 10px;
+        padding: 11px 12px;
+        gap: 8px;
+    }
+
+    .searchBar-main img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .searchBar-main input {
+        min-width: 0;
+        font-size: 0.82rem;
+    }
+
+    .searchHolder-main > button {
+        width: 100%;
+        height: 42px;
+        border-radius: 9px;
+        font-weight: 600;
+    }
+
+    .categories-main {
+        align-items: center;
+        gap: 12px 8px;
+    }
+
+    .categories-main > div:nth-of-type(1) {
+        gap: 8px;
+    }
+
+    .categories-main > div:nth-of-type(1) > h4 {
+        font-size: 0.9rem;
+    }
+
+    .categories-main > div:nth-of-type(1) > p {
+        padding: 4px 8px;
+        font-size: 0.72rem;
+    }
+
+    .categories-main > div:nth-of-type(2) > select {
+        width: auto;
+        max-width: 148px;
+        height: 32px;
+        margin: 0;
+        padding: 0 7px;
+        border-radius: 7px;
+        font-size: 0.7rem;
+    }
+
+    .categories-main > hr {
+        margin: 14px 0 18px;
+        height: 1px;
+    }
+
+    .cardHolder-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .experiencesAmount-main {
+        margin: 22px 0;
+        font-size: 0.73rem;
+    }
+
+    .experiencesAmount-main button {
+        font-size: 0.8rem;
+    }
+
+    .journey {
+        height: auto;
+        min-height: 110px;
+        padding: 14px;
+        border-width: 1px;
+        border-radius: 14px;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .journey > div:nth-of-type(1) img {
+        width: 24px;
+        height: 24px;
+        margin: 0 10px 0 0;
+    }
+
+    .journey > div:nth-of-type(1) h4 {
+        font-size: 0.85rem;
+    }
+
+    .journey > div:nth-of-type(1) p,
+    .journey > div:nth-of-type(2) > p:nth-of-type(1),
+    .journey > div:nth-of-type(2) > p:nth-of-type(2) {
+        font-size: 0.7rem;
+    }
+
+    .journey > div:nth-of-type(2) {
+        width: 100%;
+        gap: 8px 12px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+    .mainPage {
+        padding: 32px;
+    }
+
+    .cardHolder-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .journey > div:nth-of-type(2) {
+        width: 36%;
+    }
+}

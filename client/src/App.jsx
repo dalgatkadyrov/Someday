@@ -11,6 +11,7 @@ function App() {
   const [cards, setCards] = useState([])
   const [currentPage, setCurrentPage] = useState('allExperiences')
   const [currentCategory, setCurrentCategory] = useState()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [authed, setAuthed] = useState(false)
   const [authLoading, setAuthLoading] = useState(true)
 
@@ -50,10 +51,10 @@ function App() {
     <div className='app-app'>
       {authed ? <>
         <div className="nav-app">
-          <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} cards={cards} setCurrentCategory={setCurrentCategory} currentCategory={currentCategory} />
+          <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} cards={cards} setCurrentCategory={setCurrentCategory} currentCategory={currentCategory} isMobileOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
         </div>
         <section className='main-app'>
-          <MainPage onLogout={handleLogout} setIsAdd={setIsAdd} cards={cards} setCards={setCards} currentPage={currentPage} currentCategory={currentCategory} />
+          <MainPage onLogout={handleLogout} setIsAdd={setIsAdd} cards={cards} setCards={setCards} currentPage={currentPage} currentCategory={currentCategory} onOpenMobileNav={() => setMobileNavOpen(true)} />
         </section>
         {isAdd && <Add setIsAdd={setIsAdd} setCards={setCards} cards={cards} />}
       </> :

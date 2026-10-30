@@ -14,32 +14,46 @@ import padlock from '../../assets/icons/padlock.png'
 
 
 
-const Nav = ({ setCurrentPage, currentPage, cards, setCurrentCategory, currentCategory }) => {
+const Nav = ({ setCurrentPage, currentPage, cards, setCurrentCategory, currentCategory, isMobileOpen, onClose }) => {
 
     const completedCount = cards.filter((card) => card.completed).length
     const progress = cards.length ? Math.round((completedCount / cards.length) * 100) : 0
 
-    return (
-        <div className='nav-nav'>
+    const showPage = (page) => {
+        setCurrentPage(page)
+        setCurrentCategory('')
+        onClose?.()
+    }
+
+    const showCategory = (category) => {
+        setCurrentCategory(category)
+        setCurrentPage('')
+        onClose?.()
+    }
+
+    return <>
+        <button className={`nav-backdrop ${isMobileOpen ? 'is-open' : ''}`} type='button' aria-label='Close navigation' onClick={onClose} />
+        <div className={`nav-nav ${isMobileOpen ? 'mobile-open' : ''}`}>
             <div className='topCont'>
                 <div className='nav-titleHolder'>
                     <img src={sunriseIco} alt="" />
                     <h1>Someday</h1>
                     <p>A life beyond the everyday.</p>
+                    <button className='nav-close' type='button' aria-label='Close navigation' onClick={onClose}>×</button>
                 </div>
                 <div className="nav-pageButtons">
-                    <button className={currentPage === 'allExperiences' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentPage('allExperiences'); setCurrentCategory('') }}><img src={allExperience} alt="" />All Experience<p>{cards.length}</p></button>
-                    <button className={currentPage === 'notStarted' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentPage('notStarted'); setCurrentCategory('') }}><img src={notStarted} alt="" />Not Started<p>{cards.filter((card) => !card.completed).length}</p></button>
-                    <button className={currentPage === 'completed' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentPage('completed'); setCurrentCategory('') }}><img src={completed} alt="" />Completed<p>{cards.filter((card) => card.completed).length}</p></button>
+                    <button className={currentPage === 'allExperiences' ? 'selected' : 'navPageButton'} onClick={() => showPage('allExperiences')}><img src={allExperience} alt="" />All Experience<p>{cards.length}</p></button>
+                    <button className={currentPage === 'notStarted' ? 'selected' : 'navPageButton'} onClick={() => showPage('notStarted')}><img src={notStarted} alt="" />Not Started<p>{cards.filter((card) => !card.completed).length}</p></button>
+                    <button className={currentPage === 'completed' ? 'selected' : 'navPageButton'} onClick={() => showPage('completed')}><img src={completed} alt="" />Completed<p>{cards.filter((card) => card.completed).length}</p></button>
                 </div>
 
                 <div className="nav-categories">
                     <p>CATEGORIES</p>
-                    <button className={currentCategory === 'Adventure' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentCategory('Adventure'); setCurrentPage('') }}><img src={adventure} alt="" />Adventure <p>{cards.filter((card) => card.category === 'Adventure').length}</p></button>
-                    <button className={currentCategory === 'Travel' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentCategory('Travel'); setCurrentPage('') }}><img src={travel} alt="" />Travel <p>{cards.filter((card) => card.category === 'Travel').length}</p></button>
-                    <button className={currentCategory === 'Skills' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentCategory('Skills'); setCurrentPage('') }}><img src={skills} alt="" />Skills <p>{cards.filter((card) => card.category === 'Skills').length}</p></button>
-                    <button className={currentCategory === 'Personal Growth' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentCategory('Personal Growth'); setCurrentPage('') }}><img src={personal} alt="" />Personal Growth <p>{cards.filter((card) => card.category === 'Personal Growth').length}</p></button>
-                    <button className={currentCategory === 'Other' ? 'selected' : 'navPageButton'} onClick={() => { setCurrentCategory('Other'); setCurrentPage('') }}><img src={other} alt="" />Other <p>{cards.filter((card) => card.category === 'Other').length}</p></button>
+                    <button className={currentCategory === 'Adventure' ? 'selected' : 'navPageButton'} onClick={() => showCategory('Adventure')}><img src={adventure} alt="" />Adventure <p>{cards.filter((card) => card.category === 'Adventure').length}</p></button>
+                    <button className={currentCategory === 'Travel' ? 'selected' : 'navPageButton'} onClick={() => showCategory('Travel')}><img src={travel} alt="" />Travel <p>{cards.filter((card) => card.category === 'Travel').length}</p></button>
+                    <button className={currentCategory === 'Skills' ? 'selected' : 'navPageButton'} onClick={() => showCategory('Skills')}><img src={skills} alt="" />Skills <p>{cards.filter((card) => card.category === 'Skills').length}</p></button>
+                    <button className={currentCategory === 'Personal Growth' ? 'selected' : 'navPageButton'} onClick={() => showCategory('Personal Growth')}><img src={personal} alt="" />Personal Growth <p>{cards.filter((card) => card.category === 'Personal Growth').length}</p></button>
+                    <button className={currentCategory === 'Other' ? 'selected' : 'navPageButton'} onClick={() => showCategory('Other')}><img src={other} alt="" />Other <p>{cards.filter((card) => card.category === 'Other').length}</p></button>
                 </div>
             </div>
             <div className='bottomCont'>
@@ -64,7 +78,7 @@ const Nav = ({ setCurrentPage, currentPage, cards, setCurrentCategory, currentCa
                 </div>
             </div>
         </div>
-    )
+    </>
 }
 
 export default Nav

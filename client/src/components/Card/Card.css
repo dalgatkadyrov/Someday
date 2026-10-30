@@ -112,3 +112,139 @@
     background-size: contain;
     background-position: center;
 }
+
+@media (max-width: 700px) {
+    .card-card {
+        height: 228px;
+        min-width: 0;
+    }
+
+    .imgPart-card {
+        height: 55%;
+        min-height: 0;
+    }
+
+    .imgPart-card p {
+        left: 8px;
+        top: 8px;
+        padding: 6px 8px;
+        font-size: 0.62rem;
+        border-radius: 7px;
+    }
+
+    .imgPart-card button {
+        top: 7px;
+        right: 7px;
+        min-width: 28px;
+        min-height: 28px;
+        border-radius: 6px;
+    }
+
+    .imgPart-card button img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .infoPart-card {
+        height: 45%;
+        min-height: 0;
+        padding: 10px 12px;
+        gap: 4px;
+        font-size: 80%;
+    }
+
+    .infoPart-card h2 {
+        overflow: hidden;
+        font-size: 0.88rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .infoPart-card p {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 0.68rem;
+        line-height: 1.35;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .infoPart-card label {
+        gap: 7px;
+        font-size: 0.68rem;
+    }
+
+    .infoPart-card input,
+    .infoPart-card input:checked {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    .card-card {
+        height: 228px;
+        min-width: 0;
+    }
+
+    .imgPart-card {
+        height: 55%;
+        min-height: 0;
+    }
+
+    .imgPart-card p {
+        left: 8px;
+        top: 8px;
+        padding: 6px 8px;
+        font-size: 0.62rem;
+        border-radius: 7px;
+    }
+
+    .imgPart-card button {
+        top: 7px;
+        right: 7px;
+        min-width: 28px;
+        min-height: 28px;
+        border-radius: 6px;
+    }
+
+    .imgPart-card button img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .infoPart-card {
+        height: 45%;
+        min-height: 0;
+        padding: 10px 12px;
+        gap: 4px;
+        font-size: 80%;
+    }
+
+    .infoPart-card h2 {
+        overflow: hidden;
+        font-size: 0.88rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .infoPart-card p {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 0.68rem;
+        line-height: 1.35;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .infoPart-card label {
+        gap: 7px;
+        font-size: 0.68rem;
+    }
+
+    .infoPart-card input,
+    .infoPart-card input:checked {
+        width: 15px;
+        height: 15px;
+    }
+}

@@ -7,7 +7,7 @@ import arrowdown from '../../assets/icons/arrowdown.png'
 import route from '../../assets/icons/route.png'
 
 
-const MainPage = ({ onLogout, setIsAdd, cards, setCards, currentPage, setCompleted, completed, currentCategory }) => {
+const MainPage = ({ onLogout, setIsAdd, cards, setCards, currentPage, setCompleted, completed, currentCategory, onOpenMobileNav }) => {
 
   const [searchCards, setSearchCards] = useState()
   const [expanded, setExpanded] = useState(false)
@@ -69,7 +69,10 @@ const MainPage = ({ onLogout, setIsAdd, cards, setCards, currentPage, setComplet
   return (
     <div className='mainPage' >
       <div className='userBar-main'>
-        <div><img src={bookmark} alt="" /><p>YOUR PERSONAL COLLECTION</p></div>
+        <div className='brand-main'>
+          <button className='mobileNavToggle-main' type='button' aria-label='Open navigation' onClick={onOpenMobileNav}><span></span><span></span><span></span></button>
+          <img src={bookmark} alt="" /><p>YOUR PERSONAL COLLECTION</p>
+        </div>
         <div className='userMenu-main'>
           <button className='userProf' type='button' aria-label='Open user menu' aria-expanded={userMenuOpen} onClick={() => setUserMenuOpen((open) => !open)}></button>
           {userMenuOpen && 
@@ -84,7 +87,7 @@ const MainPage = ({ onLogout, setIsAdd, cards, setCards, currentPage, setComplet
         <h1>Your life, your list.</h1>
         <p>Collect the things you want to experience someday.</p>
         <div className='searchHolder-main'>
-          <label htmlFor="" className='searchBar-main'><img src={search} alt="" /><input onChange={handleSearch} placeholder='Search your experiences...' type="text" /></label>
+          <label className='searchBar-main'><img src={search} alt="" /><input onChange={handleSearch} placeholder='Search your experiences...' type="text" /></label>
           <button onClick={() => setIsAdd(true)}>+ Add Experience</button>
         </div>
       </div>
