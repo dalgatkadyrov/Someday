@@ -181,6 +181,17 @@
     }
 }
 
+@media (min-width: 701px) and (max-width: 900px) {
+    .card-card {
+        height: 360px;
+    }
+
+    .infoPart-card {
+        padding: 18px;
+        font-size: 95%;
+    }
+}
+
 @media (max-width: 700px) {
     .card-card {
         height: 228px;

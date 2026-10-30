@@ -475,3 +475,29 @@
         width: 36%;
     }
 }
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .brand-main {
+        gap: 10px !important;
+    }
+
+    .mobileNavToggle-main {
+        display: flex;
+        width: 34px;
+        height: 34px;
+        padding: 7px 5px;
+        flex-direction: column;
+        justify-content: space-around;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .mobileNavToggle-main span {
+        display: block;
+        width: 21px;
+        height: 2px;
+        border-radius: 2px;
+        background: #f2f1ed;
+    }
+}

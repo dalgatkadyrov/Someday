@@ -294,6 +294,121 @@
     border: none;
 }
 
+@media (min-width: 701px) and (max-width: 1024px) {
+    .auth {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .auth-auth {
+        height: auto;
+        min-height: 100dvh;
+        align-items: stretch;
+    }
+
+    .loginLeft-auth {
+        flex: 0 0 38%;
+        min-width: 0;
+        padding: 32px 24px;
+    }
+
+    .heading-auth {
+        height: 72px;
+        gap: 0 10px;
+    }
+
+    .heading-auth img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .heading-auth h1 {
+        font-size: 1.45rem;
+    }
+
+    .heading-auth p {
+        font-size: 0.8rem;
+    }
+
+    .middleInfo-auth {
+        gap: 14px;
+    }
+
+    .middleInfo-auth > p {
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+
+    .middleInfo-auth > h1 {
+        font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+        line-height: 1.12;
+    }
+
+    .photoCard-auth img {
+        height: clamp(130px, 20vh, 210px);
+        object-fit: cover;
+    }
+
+    .photoCard-auth > div:nth-of-type(1) p {
+        left: 10px;
+        top: 10px;
+        padding: 7px 9px;
+        font-size: 0.75rem;
+    }
+
+    .photoCard-auth > div:nth-of-type(2) {
+        padding: 13px;
+        gap: 7px;
+    }
+
+    .photoCard-auth > div:nth-of-type(2) h3 {
+        font-size: 0.95rem;
+    }
+
+    .photoCard-auth > div:nth-of-type(2) p,
+    .photoCard-auth > div:nth-of-type(2) label {
+        font-size: 0.75rem;
+    }
+
+    .loginRight-auth {
+        flex: 1 1 62%;
+        min-width: 0;
+        min-height: 100dvh;
+        padding: 32px clamp(28px, 5vw, 56px);
+    }
+
+    .loginForm-auth {
+        width: min(100%, 480px);
+        gap: 30px;
+    }
+
+    .loginForm-auth > div:nth-of-type(1) {
+        font-size: 100%;
+    }
+
+    .loginForm-auth > div:nth-of-type(1) h1 {
+        font-size: 2rem;
+    }
+
+    .loginForm-auth > div:nth-of-type(1) > p:nth-of-type(2) {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+    .loginForm-auth > div:nth-of-type(2) {
+        gap: 20px;
+    }
+
+    .typingInfo-auth input {
+        height: 48px;
+        padding: 0 15px;
+    }
+
+    .loginForm-auth > div:nth-of-type(2) button {
+        margin: 4px 0;
+    }
+}
+
 @media (max-width: 700px) {
     .auth {
         min-height: 100svh;
