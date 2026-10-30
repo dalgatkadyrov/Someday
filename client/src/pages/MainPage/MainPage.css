@@ -120,14 +120,27 @@
 }
 
 .categories-main>div:nth-of-type(2)>select {
-    border: 1px solid #73767D;
-    background-color: #111214;
-    color: #9B9DA3;
+    -webkit-appearance: none;
+    appearance: none;
+    color-scheme: dark;
+    border: 1px solid #2B2D31;
+    background-color: #17191C;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m2 4 4 4 4-4' fill='none' stroke='%239B9DA3' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    color: #F2F1ED;
     height: 30px;
     width: 150px;
     font-size: 0.8rem;
     margin: 5px;
+    padding: 0 34px 0 12px;
+    border-radius: 8px;
     outline: none;
+}
+
+.categories-main>div:nth-of-type(2)>select option {
+    color: #F2F1ED;
+    background-color: #17191C;
 }
 
 .categories-main>hr {
@@ -401,10 +414,12 @@
 
     .categories-main > div:nth-of-type(2) > select {
         width: auto;
+        width: 148px;
         max-width: 148px;
         height: 32px;
         margin: 0;
-        padding: 0 7px;
+        padding: 0 30px 0 9px;
+        background-position: right 9px center;
         border-radius: 7px;
         font-size: 0.7rem;
     }
